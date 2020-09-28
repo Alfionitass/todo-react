@@ -7,9 +7,17 @@ export default class Input extends Component {
 
     render() {
         return (
-            <div>
-                <input type="text" onChange={ (e) => this.setState({ value : e.target.value }) } />
-                <button type="button" onClick={() => this.props.add(this.state.value)}>Add</button>
+            <div className="container">
+                <div className="row">
+                    <section className="col s4 offset-s4">
+                        <form>
+                            <div className="input-field">
+                                <input placeholder="Input Todo" type="text" onChange={ (e) => this.setState({ value : e.target.value }) } />
+                                <button className="waves-effect waves-light btn" onClick={() => this.props.add(this.state.value)}>Add</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
             </div>
         )
     }  

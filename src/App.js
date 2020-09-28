@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 import Header from './component/Header';
 import Todo from './component/Todo';
-import Home from './pages/Home';
-import About from './pages/About';
-import Detail from './pages/Detail';
+// import Home from './pages/Home';
+// import About from './pages/About';
+// import Detail from './pages/Detail';
 import './App.css';
 
 class App extends Component {
@@ -32,10 +32,12 @@ class App extends Component {
     ]
   }
 
+  //jalannya sekali
   componentDidMount() {
     this.getStorage();
   }
 
+  // jalannya tiapkali update
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.todo !== this.state.todo
@@ -61,11 +63,11 @@ class App extends Component {
   }
 
   remove = (id) => {
-    const newTodo = this.state.todo.filter((todo) => todo.id !== id);
+    const newTodo = this.state.todo.filter((todo) => todo.id !== id);  //  filter itu buat ngilangin yg todo.id samadengan id, sm bikin array baru yg isi todo.id nya ga samadengan id yg dihapus
     this.setState({
       todo: newTodo,
     })
-    console.log(id)
+    console.log(newTodo);
   }
 
   edit =(id) => {
@@ -139,7 +141,7 @@ class App extends Component {
           completedTodo={this.completedTodo}
         />
 
-        <Router>
+        {/* <Router>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -163,7 +165,7 @@ class App extends Component {
               <Home />
             </Route>
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     )
   }

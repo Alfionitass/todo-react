@@ -3,9 +3,11 @@ import React, {Component} from 'react';
 export default class Header extends Component {
     render() {
         return (
-            <header className="App-header">
-                <p>Hello Krystal!</p>
-            </header>
+            <nav>
+                <div className="nav-wrapper">
+                    <h6 className="brand-logo center">Krystal's Todo List</h6>
+                </div>
+            </nav>
         )
     }
 }

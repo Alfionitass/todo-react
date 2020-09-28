@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
 
 export default class List extends Component {
     state = {
@@ -7,30 +7,42 @@ export default class List extends Component {
 
     render() {
         return (
-            <ul>
-                {
-                    this.props.todo.map((element) => (
-                        element.isEditing ? (
-                            <li>
-                                <input type="text" onChange={(e) => this.setState({value : e.target.value})}  />
-                                <button onClick={() => this.props.edit(element.id)}>cancel</button>
-                                <button onClick={() => this.props.doneEdit(element.id, this.state.value)}>done</button>
-                            </li>
-                        ) : (
-                            <li>
-                                {element.text}
-                                <button onClick={() => this.props.remove(element.id)}>Remove</button>
-                                <button onClick={() => this.props.edit(element.id)}>Edit</button>
-                                {element.completed ? (
-                                    <button onClick={() => this.props.completedTodo(element.id)}>not complete</button>
-                                ) : (
-                                    <button onClick={() => this.props.completedTodo(element.id)}>complete</button>
-                                )}
-                            </li>
-                        )
-                    ))
-                }
-            </ul>
+            <div className="row">
+                <section className="col s6 offset-s3">
+                    <form>
+                        <ul className="collection">
+                            {
+                                this.props.todo.map((element) => (
+                                    element.isEditing ? (
+                                        <li className="collection-item">
+                                            <div className="row">
+                                                <section className="col s4 offset-s4">
+                                                    <form>
+                                                        <div className="input-field">
+                                                            <input type="text" onChange={(e) => this.setState({ value: e.target.value })} />
+                                                            <button className="waves-effect waves-light btn" onClick={() => this.props.edit(element.id)}>cancel</button>
+                                                            <button className="waves-effect waves-light btn" onClick={() => this.props.doneEdit(element.id, this.state.value)}>done</button>
+                                                        </div>
+                                                    </form>
+                                                </section>
+                                            </div>
+                                        </li>
+                                    ) : (
+                                            <li className="collection-item">
+                                                {element.completed ? <s>{element.text}</s> : element.text}
+                                                <div className="input-field">
+                                                    <button className="waves-effect waves-light btn" onClick={() => this.props.remove(element.id)}>Remove</button>
+                                                    <button className="waves-effect waves-light btn" onClick={() => this.props.edit(element.id)}>Edit</button>
+                                                    <button className="waves-effect waves-light btn" onClick={() => this.props.completedTodo(element.id)}>complete</button>
+                                                </div>
+                                            </li>
+                                        )
+                                ))
+                            }
+                        </ul>
+                    </form>
+                </section>
+            </div>
         )
     }
 }
