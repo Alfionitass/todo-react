@@ -33,7 +33,7 @@ export default class List extends Component {
                                                 <div className="input-field">
                                                     <button className="waves-effect waves-light btn" onClick={() => this.props.remove(element.id)}>Remove</button>
                                                     <button className="waves-effect waves-light btn" onClick={() => this.props.edit(element.id)}>Edit</button>
-                                                    <button className="waves-effect waves-light btn" onClick={() => this.props.completedTodo(element.id)}>complete</button>
+                                                    <button className="waves-effect waves-light btn" type="button" onClick={() => this.props.completedTodo(element.id)}>complete</button>
                                                 </div>
                                             </li>
                                         )
